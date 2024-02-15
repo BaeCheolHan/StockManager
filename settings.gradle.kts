@@ -5,6 +5,7 @@ rootProject.name = "StockManager"
 
 include(
     "infra:rdb",
+    "infra:mongodb",
     "app",
     "domain"
 )

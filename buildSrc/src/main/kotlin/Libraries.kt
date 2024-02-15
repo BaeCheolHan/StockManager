@@ -4,6 +4,7 @@ object Libraries {
         const val bootStarterTest = "org.springframework.boot:spring-boot-starter-test"
         const val bootStarterWeb = "org.springframework.boot:spring-boot-starter-web"
         const val bootStarterDataJpa = "org.springframework.boot:spring-boot-starter-data-jpa"
+        const val bootStarterDataMongodb = "org.springframework.boot:spring-boot-starter-data-mongodb"
         const val bootStarterValidation = "org.springframework.boot:spring-boot-starter-validation"
         const val openfeign = "org.springframework.cloud:spring-cloud-starter-openfeign"
         val cloud by lazy { "org.springframework.cloud:spring-cloud-dependencies:${Versions.Spring.cloudDependencyManagement}" }

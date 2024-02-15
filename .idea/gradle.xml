@@ -23,6 +23,7 @@
             <option value="$PROJECT_DIR$/buildSrc" />
             <option value="$PROJECT_DIR$/domain" />
             <option value="$PROJECT_DIR$/infra" />
+            <option value="$PROJECT_DIR$/infra/mongodb" />
             <option value="$PROJECT_DIR$/infra/rdb" />
           </set>
         </option>
