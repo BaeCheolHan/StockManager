@@ -6,7 +6,7 @@ object Libraries {
         const val bootStarterDataJpa = "org.springframework.boot:spring-boot-starter-data-jpa"
         const val bootStarterValidation = "org.springframework.boot:spring-boot-starter-validation"
         const val openfeign = "org.springframework.cloud:spring-cloud-starter-openfeign"
-//        val cloud by lazy { "org.springframework.cloud:spring-cloud-dependencies:${Versions.Spring.cloudDependencyManagement}" }
+        val cloud by lazy { "org.springframework.cloud:spring-cloud-dependencies:${Versions.Spring.cloudDependencyManagement}" }
     }
 
     object Kotlin {
