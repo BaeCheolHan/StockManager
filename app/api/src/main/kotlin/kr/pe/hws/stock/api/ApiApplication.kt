@@ -6,8 +6,8 @@ import org.springframework.cloud.openfeign.EnableFeignClients
 
 @SpringBootApplication(scanBasePackages = ["kr.pe.hws.stock"])
 @EnableFeignClients(basePackages = ["kr.pe.hws.stock"])
-class ApiApplication
+class InternalApiApplication
 
 fun main(args: Array<String>) {
-    runApplication<ApiApplication>(*args)
+    runApplication<InternalApiApplication>(*args)
 }

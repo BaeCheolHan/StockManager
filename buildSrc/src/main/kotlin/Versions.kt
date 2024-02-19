@@ -5,6 +5,6 @@ object Versions {
     object Spring {
         const val boot = "3.2.2"
         const val dependencyManagementPlugin = "1.1.4"
-        const val cloudDependencyManagement = "2022.0.3"
+        const val cloudDependencyManagement = "2023.0.0"
     }
 }

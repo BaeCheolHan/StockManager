@@ -58,16 +58,10 @@ enum class Bank(private val code: String, @Getter private val type: BankType, @G
     BOOKOOK_S("290", BankType.STOCK, "부국증권"),
     TOSS_S("271", BankType.STOCK, "토스증권"),
     KAKAO_PAY_S("288", BankType.STOCK, "카카오페이증권"),
-    WOORIIB_S("295", BankType.STOCK, "우리종합금융");
-
+    WOORIIB_S("295", BankType.STOCK, "우리종합금융"), ;
 
     @JsonValue
-    fun getCode(): String {
-        return code;
-    }
+    fun getCode(): String = code
 
-    fun getBankCode(): String {
-        return name
-    }
-
+    fun getBankCode(): String = name
 }

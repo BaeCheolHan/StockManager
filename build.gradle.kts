@@ -69,10 +69,6 @@ subprojects {
     }
 }
 
-dependencies {
-    testImplementation("org.jetbrains.kotlin:kotlin-test")
-}
-
 tasks.withType<BootJar> {
     enabled = false
 }

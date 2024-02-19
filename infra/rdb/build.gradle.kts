@@ -30,7 +30,7 @@ dependencies {
 
 idea {
     module {
-        val kaptMain = file("build/generated/source/kapt/main")
+        val kaptMain = file("$layout.buildDirectory/generated/querydsl")
         sourceDirs.add(kaptMain)
         generatedSourceDirs.add(kaptMain)
     }
