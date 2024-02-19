@@ -25,6 +25,6 @@ class DailyTotalInvestmentAmountEntity(
 ) : BaseTimeEntity() {
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(foreignKey = ForeignKey(ConstraintMode.NO_CONSTRAINT), columnDefinition = "string", name = "member_id")
+    @JoinColumn(foreignKey = ForeignKey(ConstraintMode.NO_CONSTRAINT), name = "member_id")
     lateinit var memberEntity: MemberEntity
 }

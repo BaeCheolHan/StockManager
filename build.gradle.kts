@@ -6,7 +6,7 @@ plugins {
     id("org.jlleitschuh.gradle.ktlint") version Versions.ktlint
     kotlin("jvm") version Versions.kotlin
     kotlin("plugin.spring") version Versions.kotlin
-    kotlin("kapt") version "1.8.21"
+    kotlin("kapt") version Versions.kotlin
 }
 
 version = "1.0-SNAPSHOT"

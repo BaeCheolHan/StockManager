@@ -1,6 +1,6 @@
 plugins {
     kotlin("plugin.jpa") version Versions.kotlin
-    kotlin("kapt") version "1.8.21"
+    kotlin("kapt") version Versions.kotlin
     idea
 }
 
