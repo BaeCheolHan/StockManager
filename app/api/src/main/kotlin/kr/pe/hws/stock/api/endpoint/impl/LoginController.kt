@@ -18,7 +18,6 @@ class LoginController(
     val googleClientId: String,
     @Value("\${spring.oauth.google.callback-url}")
     val googleCallbackUrl: String,
-
     ) : LoginSpec {
 
     @GetMapping("/login/{snsType}")
@@ -40,7 +39,7 @@ class LoginController(
                 googleClientId,
                 googleCallbackUrl,
             )
-            else -> ""
+            else -> throw RuntimeException("Invalid SNS Type")
         }
 
     }
