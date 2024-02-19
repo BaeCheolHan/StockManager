@@ -19,4 +19,3 @@ tasks.register<Copy>("copy-prod") {
     from(file("../../StockManager-private/resources/prod/application-rdb.yml"))
     into("/src/main/resources")
 }
-

@@ -40,5 +40,4 @@ class BankAccountEntity(
 
     @OneToMany(mappedBy = "bankAccount", fetch = FetchType.LAZY, cascade = [CascadeType.ALL], orphanRemoval = true)
     lateinit var depositWithdrawalHistories: List<DepositWithdrawalHistoryEntity>
-
 }

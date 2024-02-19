@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.RequestHeader
 @FeignClient(
     name = "kisApiFeignClient",
     url = "https://openapi.koreainvestment.com:9443",
-    configuration = [StockManagerFeignClientConfig::class]
+    configuration = [StockManagerFeignClientConfig::class],
 )
 interface KisApiFeignClient {
     @GetMapping("/uapi/overseas-price/v1/quotations/price-detail")
     fun getOverSeaStockPrice(
         @RequestHeader header: HttpHeaders,
-        @SpringQueryMap param: OverSeaStockPriceRequest
+        @SpringQueryMap param: OverSeaStockPriceRequest,
     ): OverSeaNowStockPriceWrapper
 }

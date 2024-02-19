@@ -3,8 +3,6 @@ package kr.pe.hws.stock.adapter
 import feign.Logger
 import feign.codec.Decoder
 import feign.codec.Encoder
-import feign.form.spring.SpringFormEncoder
-import org.springframework.beans.factory.ObjectFactory
 import org.springframework.beans.factory.ObjectProvider
 import org.springframework.boot.autoconfigure.http.HttpMessageConverters
 import org.springframework.cloud.openfeign.support.HttpMessageConverterCustomizer
@@ -42,7 +40,6 @@ class StockManagerFeignClientConfig {
     fun feignLoggerLevel(): Logger.Level {
         return Logger.Level.FULL
     }
-
 }
 
 internal class CustomEmptyObjectProvider : ObjectProvider<HttpMessageConverterCustomizer?> {
@@ -68,4 +65,3 @@ internal class CustomEmptyObjectProvider : ObjectProvider<HttpMessageConverterCu
         return Stream.empty()
     }
 }
-

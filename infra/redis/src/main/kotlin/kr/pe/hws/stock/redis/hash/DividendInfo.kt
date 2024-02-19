@@ -12,5 +12,4 @@ class DividendInfo(
     val annualDividend: BigDecimal = BigDecimal.ZERO,
     val dividendRate: BigDecimal = BigDecimal.ZERO,
     val dividendHistories: List<StockDividendHistory>,
-) {
-}
+)

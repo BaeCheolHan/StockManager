@@ -14,4 +14,3 @@ tasks.register<Copy>("copy-prod") {
     from(file("../../StockManager-private/resources/prod/application-mongodb.yml"))
     into("/src/main/resources")
 }
-

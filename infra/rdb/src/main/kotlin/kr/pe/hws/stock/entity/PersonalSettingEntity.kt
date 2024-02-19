@@ -17,8 +17,8 @@ class PersonalSettingEntity(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long,
-    val defaultBankAccountId: Long
-): BaseTimeEntity() {
+    val defaultBankAccountId: Long,
+) : BaseTimeEntity() {
 
     @OneToOne
     @JoinColumn(foreignKey = ForeignKey(ConstraintMode.NO_CONSTRAINT))

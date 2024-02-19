@@ -46,4 +46,4 @@ class ExchangeRateEntity(
     val signedChangePrice: BigDecimal,
     val signedChangeRate: BigDecimal,
     val changeRate: BigDecimal,
-    )
+)

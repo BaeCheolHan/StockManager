@@ -11,5 +11,4 @@ import javax.sql.DataSource
 @EntityScan("kr.pe.hws.stock")
 class JpaConfig(
     val datasource: DataSource,
-) {
-}
+)

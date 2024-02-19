@@ -7,6 +7,6 @@ import org.springframework.data.mongodb.core.mapping.Document
 @Document
 class MyStockList(
     @Id
-    val id : String,
-    val data: List<DashboardStock>
+    val id: String,
+    val data: List<DashboardStock>,
 )

@@ -21,15 +21,32 @@ class MemberEntity(
     val email: String,
     val nickName: String,
     val password: String,
-    val loginId: String
+    val loginId: String,
 ) : BaseTimeEntity() {
 
-    @OneToMany(mappedBy = "memberEntity", fetch = FetchType.LAZY, cascade = [CascadeType.ALL], orphanRemoval = true, targetEntity = BankAccountEntity::class)
+    @OneToMany(
+        mappedBy = "memberEntity",
+        fetch = FetchType.LAZY,
+        cascade = [CascadeType.ALL],
+        orphanRemoval = true,
+        targetEntity = BankAccountEntity::class,
+    )
     lateinit var bankAccounts: Set<BankAccountEntity>
 
-    @OneToOne(mappedBy = "memberEntity", fetch = FetchType.LAZY, cascade = [CascadeType.ALL], orphanRemoval = true)
+    @OneToOne(
+        mappedBy = "memberEntity",
+        fetch = FetchType.LAZY,
+        cascade = [CascadeType.ALL],
+        orphanRemoval = true,
+    )
     lateinit var personalSettings: PersonalSettingEntity
 
-    @OneToMany(mappedBy = "memberEntity", fetch = FetchType.LAZY, cascade = [CascadeType.ALL], orphanRemoval = true, targetEntity = DailyTotalInvestmentAmountEntity::class)
+    @OneToMany(
+        mappedBy = "memberEntity",
+        fetch = FetchType.LAZY,
+        cascade = [CascadeType.ALL],
+        orphanRemoval = true,
+        targetEntity = DailyTotalInvestmentAmountEntity::class,
+    )
     lateinit var dailyTotalInvestmentAmounts: Set<DailyTotalInvestmentAmountEntity>
 }

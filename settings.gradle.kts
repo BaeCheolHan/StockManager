@@ -7,7 +7,7 @@ include(
     "infra:rdb",
     "infra:mongodb",
     "infra:redis",
-    "app",
     "domain",
-    "infra:web-adapter"
+    "infra:web-adapter",
+    "app:api",
 )

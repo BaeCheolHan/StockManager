@@ -14,5 +14,5 @@ data class DashboardStock(
     val nowPrice: BigDecimal,
     val compareToYesterdaySign: String,
     val compareToYesterday: BigDecimal,
-    val rateOfReturnPer: String
+    val rateOfReturnPer: String,
 )

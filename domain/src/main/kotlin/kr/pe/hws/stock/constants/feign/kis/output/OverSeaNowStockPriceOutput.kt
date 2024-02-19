@@ -1,29 +1,23 @@
-package kr.pe.hws.stock.redis.hash
+package kr.pe.hws.stock.constants.feign.kis.output
 
-import org.springframework.data.annotation.Id
-import org.springframework.data.redis.core.RedisHash
-import org.springframework.data.redis.core.TimeToLive
 import java.math.BigDecimal
-import java.util.concurrent.TimeUnit
 
-@RedisHash("OverSeaNowStockPrice")
-class OverSeaNowStockPrice(
-    // 실시간조회종목코드
-    // D+시장구분(3자리)+종목코드
-    // 예) DNASAAPL : D+NAS(나스닥)+AAPL(애플)
-    // [시장구분]
-    // NYS : 뉴욕, NAS : 나스닥, AMS : 아멕스 ,
-    // TSE : 도쿄, HKS : 홍콩,
-    // SHS : 상해, SZS : 심천
-    // HSX : 호치민, HNX : 하노이
-    @Id
+data class OverSeaNowStockPriceOutput(
+    //  실시간조회종목코드
+    //	D+시장구분(3자리)+종목코드
+    //	예) DNASAAPL : D+NAS(나스닥)+AAPL(애플)
+    //  [시장구분]
+    //	NYS : 뉴욕, NAS : 나스닥, AMS : 아멕스 ,
+    //	TSE : 도쿄, HKS : 홍콩,
+    //	SHS : 상해, SZS : 심천
+    //	HSX : 호치민, HNX : 하노이
     val symbol: String,
     val rsym: String,
 
     // 소수점자리수
     val zdiv: Int,
 
-    // 통화
+    //통화
     val curr: String,
 
     // 매매단위
@@ -47,7 +41,7 @@ class OverSeaNowStockPrice(
     // 전일 거래량
     val pvol: Long,
 
-    // 전일거래대금
+    //전일거래대금
     val pamt: BigDecimal,
 
     // 상한가
@@ -92,7 +86,7 @@ class OverSeaNowStockPrice(
     // 원환산당일가격
     val t_xprc: BigDecimal,
 
-    // 원환산당일대비
+    //원환산당일대비
     val t_xdif: BigDecimal,
 
     // 원환산당일등락
@@ -140,8 +134,4 @@ class OverSeaNowStockPrice(
     // ETP 분류명
     val etyp_nm: BigDecimal,
 
-    val dividendInfo: DividendInfo,
-
-    @TimeToLive(unit = TimeUnit.MINUTES)
-    val expiration: Long = 5,
-)
+    )

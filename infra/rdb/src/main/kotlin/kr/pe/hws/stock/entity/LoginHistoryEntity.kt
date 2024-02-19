@@ -20,7 +20,7 @@ class LoginHistoryEntity(
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long,
     @CreatedDate
-    val loginAt: LocalDateTime
+    val loginAt: LocalDateTime,
 ) {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(foreignKey = ForeignKey(ConstraintMode.NO_CONSTRAINT))
