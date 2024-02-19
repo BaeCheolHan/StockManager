@@ -9,16 +9,12 @@ import jakarta.persistence.Table
 import java.math.BigDecimal
 
 @Entity
-@Table(name = "dividend")
-class DividendEntity(
+@Table(name = "deposit_withdrawal_history")
+class DepositWithdrawalHistoryEntity(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long,
-    val memberId: String,
-    val year: Int,
-    val month: Int,
-    val day: Int,
-    val symbol: String,
     @Column(nullable = false, precision = 24, scale = 6)
-    val dividend: BigDecimal,
+    val amount: BigDecimal,
+    val memo: String,
 ) : BaseTimeEntity()

@@ -4,5 +4,6 @@ object Modules {
 
     object Infra {
         const val rdb = ":infra:rdb"
+        const val redis = ":infra:redis"
     }
 }

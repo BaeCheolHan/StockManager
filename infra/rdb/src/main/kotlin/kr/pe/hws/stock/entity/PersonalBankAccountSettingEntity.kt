@@ -2,6 +2,7 @@ package kr.pe.hws.stock.entity
 
 import jakarta.persistence.ConstraintMode
 import jakarta.persistence.Entity
+import jakarta.persistence.FetchType
 import jakarta.persistence.ForeignKey
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
@@ -12,15 +13,16 @@ import jakarta.persistence.Table
 
 
 @Entity
-@Table(name = "personal_setting")
-class PersonalSettingEntity(
+@Table(name = "personal_bank_account_setting")
+class PersonalBankAccountSettingEntity(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long,
-    val defaultBankAccountId: Long
-): BaseTimeEntity() {
+    val defaultNational: String,
+    val defaultCode: String,
+) : BaseTimeEntity() {
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(foreignKey = ForeignKey(ConstraintMode.NO_CONSTRAINT))
-    lateinit var memberEntity: MemberEntity
+    lateinit var bankAccount: BankAccountEntity
 }

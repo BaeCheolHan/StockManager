@@ -8,5 +8,6 @@ include(
     "infra:mongodb",
     "infra:redis",
     "app",
-    "domain"
+    "domain",
+    "infra:web-adapter"
 )
