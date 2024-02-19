@@ -24,11 +24,11 @@ class LoginController(
     @GetMapping("/login/{snsType}")
     override fun getRedirectUrl(@PathVariable snsType: String): LoginSpec.Response.RedirectResponse {
         return LoginSpec.Response.RedirectResponse(
-            loginUri = getRedirectUriFormat(snsType),
+            loginUri = getRedirectUri(snsType),
         )
     }
 
-    fun getRedirectUriFormat(snsType: String): String {
+    fun getRedirectUri(snsType: String): String {
         return when (snsType) {
             "kakao" -> String.format(
                 "https://kauth.kakao.com/oauth/authorize?client_id=%s&redirect_uri=%s&response_type=code",
