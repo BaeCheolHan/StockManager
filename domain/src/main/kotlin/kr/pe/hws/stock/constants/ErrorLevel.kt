@@ -5,5 +5,5 @@ enum class ErrorLevel {
     WARN,
     ERROR,
     CRITICAL,
-    OK
+    OK,
 }

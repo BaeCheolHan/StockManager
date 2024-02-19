@@ -11,7 +11,6 @@ import jakarta.persistence.JoinColumn
 import jakarta.persistence.OneToOne
 import jakarta.persistence.Table
 
-
 @Entity
 @Table(name = "personal_bank_account_setting")
 class PersonalBankAccountSettingEntity(

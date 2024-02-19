@@ -10,7 +10,6 @@ plugins {
     kotlin("kapt") version "1.8.21"
 }
 
-
 version = "1.0-SNAPSHOT"
 
 repositories {
@@ -69,18 +68,15 @@ subprojects {
             useJUnitPlatform()
         }
     }
-
 }
 
 dependencies {
     testImplementation("org.jetbrains.kotlin:kotlin-test")
 }
 
-
 tasks.withType<BootJar> {
     enabled = false
 }
-
 
 tasks.withType<Test> {
     useJUnitPlatform()
