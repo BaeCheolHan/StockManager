@@ -7,6 +7,7 @@ dependencyManagement {
 dependencies {
     implementation(Libraries.Spring.bootStarter)
     implementation(Libraries.Spring.bootStarterWeb)
+    api(Libraries.Spring.openfeign)
     implementation(Libraries.Kotlin.reflect)
     implementation(project(Modules.domain))
     implementation(project(Modules.Infra.webAdapter))
