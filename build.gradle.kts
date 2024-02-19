@@ -1,12 +1,11 @@
 import org.springframework.boot.gradle.tasks.bundling.BootJar
 
 plugins {
-    id("org.springframework.boot") version "3.2.2"
-    id("io.spring.dependency-management") version "1.1.4"
+    id("org.springframework.boot") version Versions.Spring.boot
+    id("io.spring.dependency-management") version Versions.Spring.dependencyManagementPlugin
     id("org.jlleitschuh.gradle.ktlint") version Versions.ktlint
     kotlin("jvm") version Versions.kotlin
-    kotlin("plugin.spring") version "1.9.22"
-    kotlin("plugin.jpa") version "1.9.22"
+    kotlin("plugin.spring") version Versions.kotlin
     kotlin("kapt") version "1.8.21"
 }
 
