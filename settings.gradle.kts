@@ -1,13 +1,10 @@
-plugins {
-    id("org.gradle.toolchains.foojay-resolver-convention") version "0.5.0"
-}
 rootProject.name = "StockManager"
 
 include(
+    "app:api",
     "infra:rdb",
     "infra:mongodb",
     "infra:redis",
     "domain",
     "infra:web-adapter",
-    "app:api",
 )
