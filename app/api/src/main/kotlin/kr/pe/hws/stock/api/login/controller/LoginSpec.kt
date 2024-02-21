@@ -9,7 +9,7 @@ interface LoginSpec {
 
     object Response {
         data class RedirectResponse(
-            val loginUri: String
+            val loginUri: String,
         )
 
         data class UserInfoResponse(

@@ -20,11 +20,11 @@ class LoginController(
     val googleClientId: String,
     @Value("\${spring.oauth.google.callback-url}")
     val googleCallbackUrl: String,
-    val loginService: LoginService
+    val loginService: LoginService,
 ) : LoginSpec {
 
     @GetMapping("/{snsType}")
-    override fun getRedirectUrl(@PathVariable(required = true) snsType: String) : LoginSpec.Response.RedirectResponse {
+    override fun getRedirectUrl(@PathVariable(required = true) snsType: String): LoginSpec.Response.RedirectResponse {
         return LoginSpec.Response.RedirectResponse(
             loginUri = getRedirectUri(snsType),
         )
@@ -36,24 +36,26 @@ class LoginController(
         @RequestParam code: String,
         @RequestParam(required = false) state: String?,
         @RequestParam(required = false) scope: String?,
-    ) : LoginSpec.Response.UserInfoResponse {
+    ): LoginSpec.Response.UserInfoResponse {
         return loginService.login(snsType, code, state, scope)
     }
 
-    fun getRedirectUri(@PathVariable snsType: String) : String {
+    fun getRedirectUri(@PathVariable snsType: String): String {
         return when (snsType) {
             "kakao" -> String.format(
                 "https://kauth.kakao.com/oauth/authorize?client_id=%s&redirect_uri=%s&response_type=code",
                 kakaoClientId,
                 kakaoCallbackUrl,
             )
+
             "google" -> String.format(
-                "https://accounts.google.com/o/oauth2/v2/auth?client_id=%s&scope=profile email&response_type=code&redirect_uri=%s",
+                "https://accounts.google.com/o/oauth2/v2/auth?client_id=%s&scope=profile email" +
+                    "&response_type=code&redirect_uri=%s",
                 googleClientId,
                 googleCallbackUrl,
             )
+
             else -> throw RuntimeException("Invalid SNS Type")
         }
-
     }
 }
