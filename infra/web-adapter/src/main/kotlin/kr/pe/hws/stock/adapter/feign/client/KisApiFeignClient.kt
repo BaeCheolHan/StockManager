@@ -1,11 +1,14 @@
-package kr.pe.hws.stock.adapter
+package kr.pe.hws.stock.adapter.feign.client
 
+import kr.pe.hws.stock.adapter.feign.config.StockManagerFeignClientConfig
 import kr.pe.hws.stock.api.kis.request.KisApiRequest
 import kr.pe.hws.stock.api.kis.response.KisApiResponseWrapper
+import kr.pe.hws.stock.api.token.ApiToken
 import org.springframework.cloud.openfeign.FeignClient
 import org.springframework.cloud.openfeign.SpringQueryMap
 import org.springframework.http.HttpHeaders
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestHeader
 
 @FeignClient(
@@ -15,6 +18,10 @@ import org.springframework.web.bind.annotation.RequestHeader
 )
 interface KisApiFeignClient {
     // 해외 개별 주식 상세
+
+    @PostMapping("/oauth2/tokenP")
+    fun getKisApiToken(): ApiToken.KisToken
+
     @GetMapping("/uapi/overseas-price/v1/quotations/price-detail")
     fun getOverSeaStockPrice(
         @RequestHeader header: HttpHeaders,

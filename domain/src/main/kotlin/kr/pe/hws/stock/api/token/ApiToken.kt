@@ -1,9 +1,9 @@
-package kr.pe.hws.stock.api.sns.oauth2.response
+package kr.pe.hws.stock.api.token
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategies
 import com.fasterxml.jackson.databind.annotation.JsonNaming
 
-object SnsToken {
+object ApiToken {
 
     @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy::class)
     data class KakaoToken(
@@ -24,5 +24,11 @@ object SnsToken {
         val idToken: String
     )
 
-
+    @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy::class)
+    data class KisToken(
+        val accessToken: String,
+        val accessTokenTokenExpired: String,
+        val tokenType: String,
+        val expiresIn: Int,
+    )
 }

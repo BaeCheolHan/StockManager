@@ -1,5 +1,6 @@
-package kr.pe.hws.stock.adapter
+package kr.pe.hws.stock.adapter.feign.client
 
+import kr.pe.hws.stock.adapter.feign.config.StockManagerFeignClientConfig
 import kr.pe.hws.stock.api.sns.user.response.User
 import org.springframework.cloud.openfeign.FeignClient
 import org.springframework.http.HttpHeaders

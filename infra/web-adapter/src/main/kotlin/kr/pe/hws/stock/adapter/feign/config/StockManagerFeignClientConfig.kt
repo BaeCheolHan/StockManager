@@ -1,4 +1,4 @@
-package kr.pe.hws.stock.adapter
+package kr.pe.hws.stock.adapter.feign.config
 
 import feign.Logger
 import feign.codec.Decoder

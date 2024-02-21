@@ -1,7 +1,8 @@
-package kr.pe.hws.stock.adapter
+package kr.pe.hws.stock.adapter.feign.client
 
+import kr.pe.hws.stock.adapter.feign.config.StockManagerFeignClientConfig
 import kr.pe.hws.stock.api.sns.oauth2.request.TokenGetRequest
-import kr.pe.hws.stock.api.sns.oauth2.response.SnsToken
+import kr.pe.hws.stock.api.token.ApiToken
 import org.springframework.cloud.openfeign.FeignClient
 import org.springframework.cloud.openfeign.SpringQueryMap
 import org.springframework.http.HttpHeaders
@@ -14,5 +15,5 @@ import org.springframework.web.bind.annotation.PostMapping
 )
 interface KakaoAuthApiFeignClient {
     @PostMapping("oauth/token")
-    fun getToken(headers: HttpHeaders, @SpringQueryMap query: TokenGetRequest) : SnsToken.KakaoToken
+    fun getToken(headers: HttpHeaders, @SpringQueryMap query: TokenGetRequest) : ApiToken.KakaoToken
 }

@@ -1,10 +1,9 @@
 package kr.pe.hws.stock.api.login.service
 
-import kr.pe.hws.stock.adapter.GoogleApiFeignClient
-import kr.pe.hws.stock.adapter.GoogleAuthApiFeignClient
-import kr.pe.hws.stock.adapter.KakaoAuthApiFeignClient
-import kr.pe.hws.stock.adapter.KakoApiFeignClient
-import kr.pe.hws.stock.api.login.controller.LoginSpec
+import kr.pe.hws.stock.adapter.feign.client.GoogleApiFeignClient
+import kr.pe.hws.stock.adapter.feign.client.GoogleAuthApiFeignClient
+import kr.pe.hws.stock.adapter.feign.client.KakaoAuthApiFeignClient
+import kr.pe.hws.stock.adapter.feign.client.KakoApiFeignClient
 import kr.pe.hws.stock.api.login.controller.LoginSpec.Response.UserInfoResponse
 import kr.pe.hws.stock.api.sns.oauth2.request.TokenGetRequest
 import kr.pe.hws.stock.api.sns.oauth2.request.UserInfoGetRequest
@@ -61,18 +60,22 @@ class LoginService(
                     profileImgUrl = user.kakaoAccount.profile.profileImageUrl,
                     bankAccounts = member.bankAccounts.stream().map { it.toDomain() }.collect(Collectors.toSet()),
                     defaultBankAccountId = member.personalSettings.defaultBankAccountId,
-                    exchangeRate = exchangeRateRepository.findAll()[0].toDomain()
+                    exchangeRate = exchangeRateRepository.findAll()[0].toDomain(),
                 )
             }
+
             "google" -> {
                 val query =
                     TokenGetRequest("authorization_code", googleClientId, googleClientSecrit, googleCallbackUrl, code)
                 val headers = HttpHeaders()
                 headers.contentType = MediaType.APPLICATION_FORM_URLENCODED
                 val googleToken = googleAuthApiFeignClient.getToken(headers, query)
-                val user = googleApiFeignClient.getUserInfo(headers, UserInfoGetRequest.Google(
-                    access_token = googleToken.accessToken
-                ))
+                val user = googleApiFeignClient.getUserInfo(
+                    headers,
+                    UserInfoGetRequest.Google(
+                        access_token = googleToken.accessToken,
+                    ),
+                )
 
                 val member = findMember(user.toSnsUser())
 
@@ -83,7 +86,7 @@ class LoginService(
                     profileImgUrl = user.picture,
                     bankAccounts = member.bankAccounts.stream().map { it.toDomain() }.collect(Collectors.toSet()),
                     defaultBankAccountId = member.personalSettings.defaultBankAccountId,
-                    exchangeRate = exchangeRateRepository.findAll()[0].toDomain()
+                    exchangeRate = exchangeRateRepository.findAll()[0].toDomain(),
                 )
             }
             else -> throw RuntimeException("Invalid SNS Type")
