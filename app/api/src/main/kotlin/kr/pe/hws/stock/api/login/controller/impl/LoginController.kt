@@ -36,9 +36,8 @@ class LoginController(
         @RequestParam code: String,
         @RequestParam(required = false) state: String?,
         @RequestParam(required = false) scope: String?,
-    ) : LoginSpec.Response.UserInfoResponse? {
-        loginService.login(snsType, code, state, scope)
-        return null
+    ) : LoginSpec.Response.UserInfoResponse {
+        return loginService.login(snsType, code, state, scope)
     }
 
     fun getRedirectUri(@PathVariable snsType: String) : String {

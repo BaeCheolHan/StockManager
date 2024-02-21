@@ -17,7 +17,7 @@ interface LoginSpec {
             val profileImgUrl: String,
             val email: String,
             val memberId: String,
-            val bankAccounts: List<BankAccount>,
+            val bankAccounts: Set<BankAccount>,
             val exchangeRate: ExchangeRate,
             val defaultBankAccountId: Long,
         )

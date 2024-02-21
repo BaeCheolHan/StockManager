@@ -18,7 +18,7 @@ class MemberEntity(
     val id: String,
     @Enumerated(EnumType.STRING)
     val snsType: SnsType,
-    val email: String?,
+    val email: String,
     val nickName: String,
     val loginId: String,
 ) : BaseTimeEntity() {

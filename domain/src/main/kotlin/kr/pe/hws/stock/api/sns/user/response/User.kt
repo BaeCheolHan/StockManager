@@ -20,51 +20,52 @@ object User {
         val connectedAt: String,
         val properties: KaKaoProperties,
         val kakaoAccount: KakaoAccount,
-        val snsType: SnsType = SnsType.KAKAO
+        val snsType: SnsType = SnsType.KAKAO,
     )
 
     @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy::class)
     data class KakaoAccount(
-        val profileNeedsAgreement: Boolean?,
-        val profileNicknameNeedsAgreement: Boolean?,
-        val profileImageNeedsAgreement: Boolean?,
+        val profileNeedsAgreement: Boolean,
+        val profileNicknameNeedsAgreement: Boolean,
+        val profileImageNeedsAgreement: Boolean,
         val profile: KakaoProfile,
-        val nameNeedsAgreement: Boolean?,
-        val name: String?,
-        val hasEmail: Boolean?,
-        val emailNeedsAgreement: Boolean?,
-        val isEmailValid: Boolean?,
-        val isEmailVerified: Boolean?,
+        val nameNeedsAgreement: Boolean,
+        val name: String,
+        val hasEmail: Boolean,
+        val emailNeedsAgreement: Boolean,
+        val isEmailValid: Boolean,
+        val isEmailVerified: Boolean,
         val email: String,
-        val ageRangeNeedsAgreement: Boolean?,
-        val ageRange: String?,
-        val birthyearNeedsAgreement: String?,
-        val birthyear: String?,
-        val birthdayNeedsAgreement: Boolean?,
-        val birthday: String?,
-        val birthdayType: String?,
-        val genderNeedsAgreement: Boolean?,
-        val gender: String?,
-        val phoneNumberNeedsAgreement: Boolean?,
-        val phoneNumber: String?,
-        val ciNeedsAgreement: Boolean?,
-        val ci: String?,
-        val ciAuthenticatedAt: LocalDateTime?,
-        )
+        val ageRangeNeedsAgreement: Boolean,
+        val ageRange: String,
+        val birthyearNeedsAgreement: String,
+        val birthyear: String,
+        val birthdayNeedsAgreement: Boolean,
+        val birthday: String,
+        val birthdayType: String,
+        val genderNeedsAgreement: Boolean,
+        val gender: String,
+        val phoneNumberNeedsAgreement: Boolean,
+        val phoneNumber: String,
+        val ciNeedsAgreement: Boolean,
+        val ci: String,
+        val ciAuthenticatedAt: LocalDateTime,
+    )
 
     @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy::class)
     data class KakaoProfile(
         val nickname: String,
-        val thumbnailImageUrl: String?,
-        val profileImageUrl: String?,
-        val isDefaultImage: Boolean?,
+        val thumbnailImageUrl: String,
+        val profileImageUrl: String,
+        val isDefaultImage: Boolean,
     )
+
     @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy::class)
     data class KaKaoProperties(
-        val nickname: String?,
-        val thumbnailImageUrl: String?,
-        val profileImageUrl: String?,
-        val isDefaultImage: Boolean?,
+        val nickname: String,
+        val thumbnailImageUrl: String,
+        val profileImageUrl: String,
+        val isDefaultImage: Boolean,
     )
 
     @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy::class)
@@ -75,19 +76,19 @@ object User {
         val familyName: String,
         val picture: String,
         val email: String,
-        val emailVerified: Boolean?,
+        val emailVerified: Boolean,
         val locale: String,
-        val snsType: SnsType = SnsType.GOOGLE
+        val snsType: SnsType = SnsType.GOOGLE,
     )
 
-    fun KakaoUser.toSnsUser() = SnsUser (
+    fun KakaoUser.toSnsUser() = SnsUser(
         id = id,
         snsType = snsType,
         name = kakaoAccount.profile.nickname,
         email = kakaoAccount.email,
     )
 
-    fun GoogleUser.toSnsUser() = SnsUser (
+    fun GoogleUser.toSnsUser() = SnsUser(
         id = id,
         snsType = snsType,
         name = name,
