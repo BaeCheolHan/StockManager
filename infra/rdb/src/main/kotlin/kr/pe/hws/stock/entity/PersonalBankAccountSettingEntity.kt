@@ -10,6 +10,7 @@ import jakarta.persistence.Id
 import jakarta.persistence.JoinColumn
 import jakarta.persistence.OneToOne
 import jakarta.persistence.Table
+import kr.pe.hws.stock.personal.PersonalBankAccountSetting
 
 @Entity
 @Table(name = "personal_bank_account_setting")
@@ -25,3 +26,9 @@ class PersonalBankAccountSettingEntity(
     @JoinColumn(foreignKey = ForeignKey(ConstraintMode.NO_CONSTRAINT))
     lateinit var bankAccount: BankAccountEntity
 }
+
+fun PersonalBankAccountSettingEntity.toDomain() = PersonalBankAccountSetting(
+    id = id,
+    defaultNational = defaultNational,
+    defaultCode = defaultCode,
+)

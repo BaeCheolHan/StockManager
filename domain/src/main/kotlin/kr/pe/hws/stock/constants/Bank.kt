@@ -1,10 +1,11 @@
 package kr.pe.hws.stock.constants
 
 import com.fasterxml.jackson.annotation.JsonValue
+import kr.pe.hws.stock.bank.BankEnumMapperType
 import lombok.Getter
 
-enum class Bank(private val code: String, @Getter private val type: BankType, @Getter private val bankName: String) {
-    BOK("001", BankType.BANK, "한국은행"),
+enum class Bank(private val code: String, @Getter private val type: BankType, @Getter private val bankName: String) : BankEnumMapperType {
+    BOK("001", BankType.BANK, "한국은행") ,
     KDB("002", BankType.BANK, "산업은행"),
     IBK("003", BankType.BANK, "기업은행"),
     KB("004", BankType.BANK, "국민은행"),
@@ -60,8 +61,9 @@ enum class Bank(private val code: String, @Getter private val type: BankType, @G
     KAKAO_PAY_S("288", BankType.STOCK, "카카오페이증권"),
     WOORIIB_S("295", BankType.STOCK, "우리종합금융"), ;
 
-    @JsonValue
-    fun getCode(): String = code
+    override fun getCode(): String = code
 
-    fun getBankCode(): String = name
+    override fun getBankCode(): String = name
+
+    override fun getBankName() : String = bankName
 }

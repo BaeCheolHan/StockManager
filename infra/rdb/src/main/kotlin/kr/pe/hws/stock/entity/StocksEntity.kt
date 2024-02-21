@@ -3,7 +3,7 @@ package kr.pe.hws.stock.entity
 import jakarta.persistence.Entity
 import jakarta.persistence.Id
 import jakarta.persistence.Table
-import kr.pe.hws.stock.constants.stocks.Stocks
+import kr.pe.hws.stock.stocks.Stocks
 
 @Entity
 @Table(name = "stocks")

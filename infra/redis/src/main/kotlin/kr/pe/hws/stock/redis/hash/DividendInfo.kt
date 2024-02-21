@@ -1,6 +1,6 @@
 package kr.pe.hws.stock.redis.hash
 
-import kr.pe.hws.stock.constants.stock.StockDividendHistory
+import kr.pe.hws.stock.stock.StockDividendHistory
 import org.springframework.data.annotation.Id
 import org.springframework.data.redis.core.RedisHash
 import java.math.BigDecimal

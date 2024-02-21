@@ -14,7 +14,10 @@ import jakarta.persistence.Id
 import jakarta.persistence.JoinColumn
 import jakarta.persistence.ManyToOne
 import jakarta.persistence.OneToMany
+import jakarta.persistence.OneToOne
 import jakarta.persistence.Table
+import kr.pe.hws.stock.bank.BankEnumMapperValue
+import kr.pe.hws.stock.bank.account.BankAccount
 import kr.pe.hws.stock.constants.Bank
 
 @Entity
@@ -40,4 +43,16 @@ class BankAccountEntity(
 
     @OneToMany(mappedBy = "bankAccount", fetch = FetchType.LAZY, cascade = [CascadeType.ALL], orphanRemoval = true)
     lateinit var depositWithdrawalHistories: List<DepositWithdrawalHistoryEntity>
+
+    @OneToOne(mappedBy = "bankAccount", fetch = FetchType.LAZY, cascade = [CascadeType.ALL], orphanRemoval = true)
+    lateinit var personalBankAccountSettingEntity: PersonalBankAccountSettingEntity
 }
+
+fun BankAccountEntity.toDomain() = BankAccount(
+    id = id,
+    memo = memo,
+    alias = alias,
+    bank = bank,
+    bankInfo = BankEnumMapperValue(bank),
+    personalBankAccountSetting = personalBankAccountSettingEntity.toDomain(),
+)

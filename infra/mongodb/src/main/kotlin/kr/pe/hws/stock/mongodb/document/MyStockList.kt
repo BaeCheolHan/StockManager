@@ -1,6 +1,6 @@
 package kr.pe.hws.stock.mongodb.document
 
-import kr.pe.hws.stock.constants.stock.DashboardStock
+import kr.pe.hws.stock.stock.DashboardStock
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
 

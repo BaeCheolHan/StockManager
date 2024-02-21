@@ -4,6 +4,7 @@ import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.Id
 import jakarta.persistence.Table
+import kr.pe.hws.stock.exchange.rate.ExchangeRate
 import java.math.BigDecimal
 
 @Entity
@@ -46,4 +47,42 @@ class ExchangeRateEntity(
     val signedChangePrice: BigDecimal,
     val signedChangeRate: BigDecimal,
     val changeRate: BigDecimal,
+)
+
+fun ExchangeRateEntity.toDomain() = ExchangeRate(
+    id = id,
+    code = code,
+    currencyCode = currencyCode,
+    currencyName = currencyName,
+    country = country,
+    name = name,
+    date = date,
+    time = time,
+    recurrenceCount = recurrenceCount,
+    basePrice = basePrice,
+    openingPrice = openingPrice,
+    highPrice = highPrice,
+    lowPrice = lowPrice,
+    change = change,
+    changePrice = changePrice,
+    cashBuyingPrice = cashBuyingPrice,
+    cashSellingPrice = cashSellingPrice,
+    ttBuyingPrice = ttBuyingPrice,
+    ttSellingPrice = ttSellingPrice,
+    tcBuyingPrice = tcBuyingPrice,
+    fcSellingPrice = fcSellingPrice,
+    exchangeCommission = exchangeCommission,
+    usDollarRate = usDollarRate,
+    high52wPrice = high52wPrice,
+    high52wDate = high52wDate,
+    low52wPrice = low52wPrice,
+    low52wDate = low52wDate,
+    currencyUnit = currencyUnit,
+    provider = provider,
+    timestamp = timestamp,
+    createdAt = createdAt,
+    modifiedAt = modifiedAt,
+    signedChangePrice = signedChangePrice,
+    signedChangeRate = signedChangeRate,
+    changeRate = changeRate,
 )

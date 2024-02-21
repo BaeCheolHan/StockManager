@@ -14,7 +14,7 @@ abstract class BaseTimeEntity {
 
     @CreatedDate
     @Column(nullable = false, updatable = false)
-    val createDate: LocalDateTime = LocalDateTime.now()
+    val createdDate: LocalDateTime = LocalDateTime.now()
 
     @LastModifiedDate
     @Column(nullable = false)

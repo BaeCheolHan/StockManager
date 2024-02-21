@@ -1,7 +1,7 @@
 package kr.pe.hws.stock.adapter
 
-import kr.pe.hws.stock.constants.feign.kis.request.OverSeaStockPriceRequest
-import kr.pe.hws.stock.constants.feign.kis.response.OverSeaNowStockPriceWrapper
+import kr.pe.hws.stock.api.kis.request.OverSeaStockPriceRequest
+import kr.pe.hws.stock.api.kis.response.OverSeaNowStockPriceWrapper
 import org.springframework.cloud.openfeign.FeignClient
 import org.springframework.cloud.openfeign.SpringQueryMap
 import org.springframework.http.HttpHeaders
