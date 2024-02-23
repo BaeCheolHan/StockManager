@@ -1,8 +1,11 @@
 package kr.pe.hws.stock.adapter.util
 
+import kr.pe.hws.stock.adapter.feign.client.KisApiFeignClient
+import kr.pe.hws.stock.redis.hash.RestKisToken
 import kr.pe.hws.stock.redis.repository.RestKisTokenRepository
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Component
+import java.util.*
 
 @Component
 class KisApiTokenProvider(
@@ -10,10 +13,21 @@ class KisApiTokenProvider(
     var appKey: String,
     @Value("\${spring.api.kis.app-secret}")
     val appSecret: String,
-    val restKisTokenRepository: RestKisTokenRepository
+    val restKisTokenRepository: RestKisTokenRepository,
+    val kisApiFeignClient: KisApiFeignClient,
 ) {
 
-    fun getRestKisToken() {
+    fun getRestKisToken(): RestKisToken {
+        val tokens: MutableIterable<RestKisToken> = restKisTokenRepository.findAll()
+        println(tokens)
+
+        val l = tokens.toList().stream().filter(Objects::nonNull).toList()
+
+        if(l.isNotEmpty()) {
+            return l.first()
+        } else {
+            return l.first()
+        }
 
     }
 }
