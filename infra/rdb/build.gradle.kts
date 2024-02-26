@@ -10,6 +10,10 @@ allOpen {
     annotation("javax.persistence.Embeddable")
 }
 
+kapt {
+    correctErrorTypes = true
+}
+
 configurations {
     compileOnly {
         extendsFrom(configurations.annotationProcessor.get())

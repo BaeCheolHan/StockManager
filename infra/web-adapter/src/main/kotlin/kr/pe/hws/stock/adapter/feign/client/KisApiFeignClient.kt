@@ -1,7 +1,6 @@
 package kr.pe.hws.stock.adapter.feign.client
 
 import kr.pe.hws.stock.adapter.feign.config.StockManagerFeignClientConfig
-import kr.pe.hws.stock.api.kis.request.KisApiRequest
 import kr.pe.hws.stock.api.kis.response.KisApiResponseWrapper
 import kr.pe.hws.stock.api.token.ApiToken
 import org.springframework.cloud.openfeign.FeignClient
@@ -17,11 +16,10 @@ import org.springframework.web.bind.annotation.RequestHeader
     configuration = [StockManagerFeignClientConfig::class],
 )
 interface KisApiFeignClient {
-    // 해외 개별 주식 상세
-
     @PostMapping("/oauth2/tokenP")
-    fun getKisApiToken(): ApiToken.KisToken
+    fun getKisApiToken(param: KisApiRequest.KisTokenGenerateRequest): ApiToken.KisToken
 
+    // 해외 개별 주식 상세
     @GetMapping("/uapi/overseas-price/v1/quotations/price-detail")
     fun getOverSeaStockPrice(
         @RequestHeader header: HttpHeaders,
@@ -36,3 +34,26 @@ interface KisApiFeignClient {
     )
 
 }
+
+object KisApiRequest {
+
+    data class KisTokenGenerateRequest(
+        val grant_type: String,
+        val appkey: String,
+        val appsecret: String,
+    ) {
+        constructor(appKey: String, appSecret: String) : this("client_credentials", appKey, appSecret)
+    }
+
+    data class KrStockPriceRequest(
+        val fid_cond_mrkt_div_code: String,
+        val fid_input_iscd: String,
+    )
+
+    data class OverSeaStockPriceRequest(
+        val AUTH: String,
+        val EXCD: String,
+        val SYMB: String
+    )
+}
+

@@ -1,6 +1,7 @@
 package kr.pe.hws.stock.adapter.util
 
 import kr.pe.hws.stock.adapter.feign.client.KisApiFeignClient
+import kr.pe.hws.stock.adapter.feign.client.KisApiRequest
 import kr.pe.hws.stock.redis.hash.RestKisToken
 import kr.pe.hws.stock.redis.repository.RestKisTokenRepository
 import org.springframework.beans.factory.annotation.Value
@@ -23,10 +24,19 @@ class KisApiTokenProvider(
 
         val l = tokens.toList().stream().filter(Objects::nonNull).toList()
 
-        if(l.isNotEmpty()) {
+        if (l.isNotEmpty()) {
             return l.first()
         } else {
-            return l.first()
+            val response = kisApiFeignClient.getKisApiToken(
+                KisApiRequest.KisTokenGenerateRequest(
+                    appKey,
+                    appSecret,
+                ),
+            )
+
+            val token = RestKisToken(response)
+            restKisTokenRepository.save(token)
+            return token
         }
 
     }
