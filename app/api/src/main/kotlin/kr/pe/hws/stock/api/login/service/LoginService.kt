@@ -9,10 +9,10 @@ import kr.pe.hws.stock.api.sns.oauth2.request.TokenGetRequest
 import kr.pe.hws.stock.api.sns.oauth2.request.UserInfoGetRequest
 import kr.pe.hws.stock.api.sns.user.response.User
 import kr.pe.hws.stock.api.sns.user.response.User.toSnsUser
-import kr.pe.hws.stock.entity.MemberEntity
-import kr.pe.hws.stock.entity.toDomain
-import kr.pe.hws.stock.repository.ExchangeRateRepository
-import kr.pe.hws.stock.repository.MemberRepository
+import kr.pe.hws.stock.rdb.entity.MemberEntity
+import kr.pe.hws.stock.rdb.entity.toDomain
+import kr.pe.hws.stock.rdb.repository.ExchangeRateRepository
+import kr.pe.hws.stock.rdb.repository.MemberRepository
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.http.HttpHeaders
 import org.springframework.http.MediaType
@@ -90,9 +90,8 @@ class LoginService(
                 )
             }
             else -> throw RuntimeException("Invalid SNS Type")
-
         }
-        return response;
+        return response
     }
 
     fun findMember(user: User.SnsUser): MemberEntity {

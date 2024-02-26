@@ -1,6 +1,6 @@
-package kr.pe.hws.stock.repository
+package kr.pe.hws.stock.rdb.repository
 
-import kr.pe.hws.stock.entity.StocksEntity
+import kr.pe.hws.stock.rdb.entity.StocksEntity
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.jpa.repository.Query
 import org.springframework.data.repository.query.Param

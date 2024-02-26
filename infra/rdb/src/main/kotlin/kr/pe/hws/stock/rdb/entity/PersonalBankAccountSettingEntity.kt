@@ -1,4 +1,4 @@
-package kr.pe.hws.stock.entity
+package kr.pe.hws.stock.rdb.entity
 
 import jakarta.persistence.ConstraintMode
 import jakarta.persistence.Entity

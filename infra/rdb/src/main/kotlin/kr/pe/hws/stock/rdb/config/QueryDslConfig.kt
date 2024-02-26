@@ -1,4 +1,4 @@
-package kr.pe.hws.stock.config
+package kr.pe.hws.stock.rdb.config
 
 import com.querydsl.jpa.impl.JPAQueryFactory
 import jakarta.persistence.EntityManager
