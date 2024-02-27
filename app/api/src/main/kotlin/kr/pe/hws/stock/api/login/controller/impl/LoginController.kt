@@ -30,7 +30,7 @@ class LoginController(
         )
     }
 
-    @GetMapping("/{snsType}/user")
+    @GetMapping("/oauth/{snsType}")
     override fun getUserInfo(
         @PathVariable(required = true) snsType: String,
         @RequestParam code: String,

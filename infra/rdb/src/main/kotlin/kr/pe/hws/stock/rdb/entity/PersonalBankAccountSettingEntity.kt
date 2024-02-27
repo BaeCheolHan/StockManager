@@ -23,7 +23,7 @@ class PersonalBankAccountSettingEntity(
 ) : BaseTimeEntity() {
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(foreignKey = ForeignKey(ConstraintMode.NO_CONSTRAINT))
+    @JoinColumn(foreignKey = ForeignKey(ConstraintMode.NO_CONSTRAINT), name="bank_account_id")
     lateinit var bankAccount: BankAccountEntity
 }
 

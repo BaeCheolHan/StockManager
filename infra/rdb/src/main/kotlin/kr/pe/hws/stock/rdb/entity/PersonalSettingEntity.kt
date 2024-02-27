@@ -20,6 +20,6 @@ class PersonalSettingEntity(
 ) : BaseTimeEntity() {
 
     @OneToOne
-    @JoinColumn(foreignKey = ForeignKey(ConstraintMode.NO_CONSTRAINT))
+    @JoinColumn(foreignKey = ForeignKey(ConstraintMode.NO_CONSTRAINT), name = "member_id")
     lateinit var memberEntity: MemberEntity
 }

@@ -26,8 +26,8 @@ class BankAccountEntity(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long,
-    val memo: String,
-    val alias: String,
+    val memo: String?,
+    val alias: String?,
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)

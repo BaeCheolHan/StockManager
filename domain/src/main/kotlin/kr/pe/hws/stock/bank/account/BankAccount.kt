@@ -6,8 +6,8 @@ import kr.pe.hws.stock.personal.PersonalBankAccountSetting
 
 data class BankAccount (
     val id: Long,
-    val memo: String,
-    val alias: String,
+    val memo: String?,
+    val alias: String?,
     val bank: Bank,
     val bankInfo: BankEnumMapperValue,
     val personalBankAccountSetting: PersonalBankAccountSetting

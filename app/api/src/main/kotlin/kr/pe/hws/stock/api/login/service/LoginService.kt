@@ -1,5 +1,6 @@
 package kr.pe.hws.stock.api.login.service
 
+import jakarta.transaction.Transactional
 import kr.pe.hws.stock.adapter.feign.client.GoogleApiFeignClient
 import kr.pe.hws.stock.adapter.feign.client.GoogleAuthApiFeignClient
 import kr.pe.hws.stock.adapter.feign.client.KakaoAuthApiFeignClient
@@ -39,6 +40,7 @@ class LoginService(
     val memberRepository: MemberRepository,
     val exchangeRateRepository: ExchangeRateRepository,
 ) {
+    @Transactional
     fun login(snsType: String, code: String, state: String?, scope: String?): UserInfoResponse {
         lateinit var response: UserInfoResponse
         when (snsType) {
@@ -53,6 +55,7 @@ class LoginService(
                 val user = kakaoApiFeignClient.getUserInfo(headers)
 
                 val member = findMember(user.toSnsUser())
+
                 response = UserInfoResponse(
                     memberId = member.id,
                     email = member.email,
@@ -95,7 +98,7 @@ class LoginService(
     }
 
     fun findMember(user: User.SnsUser): MemberEntity {
-        return memberRepository.findById(user.id).orElseGet {
+        return memberRepository.findByIdJoinFetch(user.id).orElseGet {
             memberRepository.save(
                 MemberEntity(
                     id = user.id,
