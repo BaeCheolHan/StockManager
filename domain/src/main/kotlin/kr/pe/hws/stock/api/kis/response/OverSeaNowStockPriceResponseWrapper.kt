@@ -6,7 +6,7 @@ import com.fasterxml.jackson.databind.annotation.JsonNaming
 import java.math.BigDecimal
 
 
-object KisApiResponseWrapper {
+object OverSeaNowStockPriceResponseWrapper {
 
     @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy::class)
     @JsonInclude(JsonInclude.Include.NON_NULL)
