@@ -11,9 +11,7 @@ import org.springframework.web.bind.annotation.RestController
 class IndexController(val indexService: IndexService) : IndexSpec {
 
     @GetMapping("/index-chart")
-    override fun getIndexChart(chartType: String) {
-        indexService.getIndexCharts(chartType)
+    override fun getIndexChart(chartType: String): IndexSpec.Response.IndexChart {
+        return indexService.getIndexCharts(chartType)
     }
-
-
 }
