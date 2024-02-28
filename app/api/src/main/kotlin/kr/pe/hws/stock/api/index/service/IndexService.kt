@@ -68,9 +68,10 @@ class IndexService(
         )
         val resp = kisApiFeignClient.getKrInquireDailyIndexChart(headers, request)
         val dfm = DateTimeFormatter.ofPattern("yyyyMMdd")
-        resp.output2 = resp.output2.sortedWith { day1, day2 ->
-            LocalDate.parse(day1.stckBsopDate, dfm).compareTo(LocalDate.parse(day2.stckBsopDate, dfm))
-        }
+        resp.output2 = resp.output2
+            .sortedWith { day1, day2 ->
+                LocalDate.parse(day1.stckBsopDate, dfm).compareTo(LocalDate.parse(day2.stckBsopDate, dfm))
+            }
         krIndexChartRepository.save(KrIndexChart("""${type.id}_$chartType""", resp))
         return resp
     }
@@ -89,9 +90,10 @@ class IndexService(
         )
         val resp = kisApiFeignClient.getOverSeaInquireDailyChart(headers, request)
         val dfm = DateTimeFormatter.ofPattern("yyyyMMdd")
-        resp.output2 = resp.output2.sortedWith { day1, day2 ->
-            LocalDate.parse(day1.stckBsopDate, dfm).compareTo(LocalDate.parse(day2.stckBsopDate, dfm))
-        }
+        resp.output2 = resp.output2
+            .sortedWith { day1, day2 ->
+                LocalDate.parse(day1.stckBsopDate, dfm).compareTo(LocalDate.parse(day2.stckBsopDate, dfm))
+            }
         overSeaIndexChartRepository.save(OverSeaIndexChart("""${type.id}_$chartType""", resp))
         return resp
     }
