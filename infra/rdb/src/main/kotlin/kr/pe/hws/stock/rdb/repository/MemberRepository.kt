@@ -8,13 +8,14 @@ import java.util.*
 
 @Repository
 interface MemberRepository : JpaRepository<MemberEntity, String> {
-    fun findByEmail(email: String) : Optional<MemberEntity>
-    fun findByNickName(nickName: String) : Optional<MemberEntity>
+    fun findByEmail(email: String): Optional<MemberEntity>
+    fun findByNickName(nickName: String): Optional<MemberEntity>
 
-
-    @Query("SELECT m FROM MemberEntity m " +
-        "LEFT JOIN BankAccountEntity b ON m.id = b.memberEntity.id JOIN FETCH m.bankAccounts " +
-        "LEFT JOIN PersonalSettingEntity p ON m.id = p.memberEntity.id JOIN FETCH m.personalSettings " +
-        "WHERE m.id = :id")
+    @Query(
+        "SELECT m FROM MemberEntity m " +
+            "LEFT JOIN BankAccountEntity b ON m.id = b.memberEntity.id JOIN FETCH m.bankAccounts " +
+            "LEFT JOIN PersonalSettingEntity p ON m.id = p.memberEntity.id JOIN FETCH m.personalSettings " +
+            "WHERE m.id = :id",
+    )
     fun findByIdJoinFetch(id: String): Optional<MemberEntity>
 }

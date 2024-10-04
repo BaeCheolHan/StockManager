@@ -2,7 +2,7 @@ package kr.pe.hws.stock.dividend
 
 import java.math.BigDecimal
 
-data class DividendInfo (
+data class DividendInfo(
     val id: Long,
     val year: Int,
     val month: Int,

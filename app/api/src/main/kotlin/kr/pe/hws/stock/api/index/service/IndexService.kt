@@ -1,11 +1,11 @@
 package kr.pe.hws.stock.api.index.service
 
+import kr.pe.hws.stock.adapter.constants.KisApiTransactionId
 import kr.pe.hws.stock.adapter.feign.client.KisApiFeignClient
 import kr.pe.hws.stock.adapter.feign.client.KisApiRequest
 import kr.pe.hws.stock.adapter.util.KisApiUtils
 import kr.pe.hws.stock.api.index.controller.IndexSpec
 import kr.pe.hws.stock.api.index.controller.constants.IndexId
-import kr.pe.hws.stock.api.kis.constants.KisApiTransactionId
 import kr.pe.hws.stock.api.kis.response.DailyIndexChartPriceWrapper
 import kr.pe.hws.stock.redis.hash.KrIndexChart
 import kr.pe.hws.stock.redis.hash.OverSeaIndexChart
@@ -92,7 +92,7 @@ class IndexService(
         val dfm = DateTimeFormatter.ofPattern("yyyyMMdd")
         resp.output2 = resp.output2
             .sortedWith { day1, day2 ->
-                LocalDate.parse(day1.stckBsopDate, dfm).compareTo(LocalDate.parse(day2.stckBsopDate, dfm))
+                LocalDate.parse(day1.stckBsopDate!!, dfm).compareTo(LocalDate.parse(day2.stckBsopDate!!, dfm))
             }
         overSeaIndexChartRepository.save(OverSeaIndexChart("""${type.id}_$chartType""", resp))
         return resp

@@ -85,7 +85,6 @@ class ExchangeRateEntity(
         signedChangeRate = exchangeRate.signedChangeRate,
         changeRate = exchangeRate.changeRate,
 
-
     )
 }
 

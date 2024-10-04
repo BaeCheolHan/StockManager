@@ -7,7 +7,7 @@ interface IndexSpec {
     fun getIndexChart(chartType: String): Response.IndexChart
 
     object Response {
-        data class IndexChart (
+        data class IndexChart(
             val kospi: DailyIndexChartPriceWrapper.KrDailyIndexChart,
             val kosdaq: DailyIndexChartPriceWrapper.KrDailyIndexChart,
             val snp: DailyIndexChartPriceWrapper.OverSeaDailyIndexChart,

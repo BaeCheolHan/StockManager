@@ -15,5 +15,5 @@ import org.springframework.web.bind.annotation.PostMapping
 )
 interface KakaoAuthApiFeignClient {
     @PostMapping("oauth/token")
-    fun getToken(headers: HttpHeaders, @SpringQueryMap query: TokenGetRequest) : ApiToken.KakaoToken
+    fun getToken(headers: HttpHeaders, @SpringQueryMap query: TokenGetRequest): ApiToken.KakaoToken
 }

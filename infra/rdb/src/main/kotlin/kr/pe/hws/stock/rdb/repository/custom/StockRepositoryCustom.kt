@@ -4,5 +4,5 @@ import kr.pe.hws.stock.stock.DashboardStock
 
 interface StockRepositoryCustom {
 
-    fun findAllDashboardStock(memberId: String?, bankId: Long?) : List<DashboardStock>
+    fun findAllDashboardStock(memberId: String?, bankId: Long?): List<DashboardStock>
 }

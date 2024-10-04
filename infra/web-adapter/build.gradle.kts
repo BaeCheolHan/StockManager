@@ -13,11 +13,11 @@ dependencies {
 }
 
 tasks.register<Copy>("copy-dev") {
-    from(file("../../StockManager-private/resources/dev/application-api.yml"))
-    into("/src/main/resources")
+    from(file("$projectDir/../../StockManager-private/resources/dev/application-api.yml"))
+    into("$projectDir/src/main/resources")
 }
 
 tasks.register<Copy>("copy-prod") {
-    from(file("../../StockManager-private/resources/prod/application-api.yml"))
-    into("/src/main/resources")
+    from(file("$projectDir/../../StockManager-private/resources/prod/application-api.yml"))
+    into("$projectDir/src/main/resources")
 }

@@ -20,5 +20,4 @@ interface GoogleApiFeignClient {
         @RequestHeader headers: HttpHeaders,
         @SpringQueryMap param: UserInfoGetRequest.Google,
     ): User.GoogleUser
-
 }

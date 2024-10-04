@@ -5,7 +5,6 @@ import com.fasterxml.jackson.databind.PropertyNamingStrategies
 import com.fasterxml.jackson.databind.annotation.JsonNaming
 import java.math.BigDecimal
 
-
 object OverSeaNowStockPriceResponseWrapper {
 
     @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy::class)
@@ -151,5 +150,4 @@ object OverSeaNowStockPriceResponseWrapper {
         // ETP 분류명
         val etypNm: BigDecimal?,
     )
-
 }

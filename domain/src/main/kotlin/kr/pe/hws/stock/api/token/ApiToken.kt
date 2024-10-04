@@ -21,7 +21,7 @@ object ApiToken {
         val accessToken: String,
         val scope: String,
         val tokenType: String,
-        val idToken: String
+        val idToken: String,
     )
 
     @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy::class)

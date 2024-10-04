@@ -5,5 +5,4 @@ object UserInfoGetRequest {
     data class Google(
         val access_token: String,
     )
-
 }

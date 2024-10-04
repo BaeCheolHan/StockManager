@@ -17,10 +17,11 @@ class ExchangeRateService(
 
     fun getExchangeRate(): ExchangeRate {
         val exchangeRateList: MutableList<ExchangeRateEntity> = exchangeRateRepository.findAll()
-        if(exchangeRateList.isNotEmpty()) {
+        if (exchangeRateList.isNotEmpty()) {
             return exchangeRateList.first().toDomain()
         } else {
-             val list: List<ExchangeRate> = exchangeRateApiFeignClient.getExchangeRate(ExchangeRateApi.Reqeust("FRX.KRWUSD"))
+            val list: List<ExchangeRate> =
+                exchangeRateApiFeignClient.getExchangeRate(ExchangeRateApi.Reqeust("FRX.KRWUSD"))
             list.forEach(
                 Consumer { exchangeRate: ExchangeRate ->
                     exchangeRateRepository.deleteById(exchangeRate.id)

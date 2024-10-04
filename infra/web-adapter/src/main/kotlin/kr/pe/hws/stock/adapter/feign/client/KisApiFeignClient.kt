@@ -1,6 +1,5 @@
 package kr.pe.hws.stock.adapter.feign.client
 
-import feign.Headers
 import kr.pe.hws.stock.adapter.feign.config.StockManagerFeignClientConfig
 import kr.pe.hws.stock.api.kis.response.DailyIndexChartPriceWrapper
 import kr.pe.hws.stock.api.kis.response.OverSeaNowStockPriceResponseWrapper
@@ -49,7 +48,6 @@ interface KisApiFeignClient {
         @RequestHeader header: HttpHeaders,
         @SpringQueryMap param: KisApiRequest.DailyIndexChartPriceRequest,
     ): DailyIndexChartPriceWrapper.OverSeaDailyIndexChart
-
 }
 
 object KisApiRequest {
@@ -114,4 +112,3 @@ object KisApiRequest {
         val FID_PERIOD_DIV_CODE: String,
     )
 }
-

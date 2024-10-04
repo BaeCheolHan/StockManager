@@ -18,11 +18,17 @@ dependencies {
 }
 
 tasks.register<Copy>("copy-dev") {
-    from(file("../../StockManager-private/resources/dev/application-sns.yml"))
+    from(file("$projectDir/../../StockManager-private/resources/dev/application-sns.yml"))
     into("/src/main/resources")
 }
 
 tasks.register<Copy>("copy-prod") {
-    from(file("../../StockManager-private/resources/prod/application-sns.yml"))
-    into("/src/main/resources")
+    from(file("$projectDir/../../StockManager-private/resources/prod/application-sns.yml"))
+    into("$projectDir/src/main/resources")
+}
+
+tasks.register("printProjectDir") {
+    doLast {
+        println("Project directory: $projectDir")
+    }
 }

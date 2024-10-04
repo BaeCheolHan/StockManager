@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
@@ -20,11 +21,14 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/app/api" />
             <option value="$PROJECT_DIR$/buildSrc" />
             <option value="$PROJECT_DIR$/domain" />
             <option value="$PROJECT_DIR$/infra" />
             <option value="$PROJECT_DIR$/infra/mongodb" />
             <option value="$PROJECT_DIR$/infra/rdb" />
+            <option value="$PROJECT_DIR$/infra/redis" />
+            <option value="$PROJECT_DIR$/infra/web-adapter" />
           </set>
         </option>
       </GradleProjectSettings>

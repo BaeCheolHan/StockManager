@@ -14,5 +14,5 @@ import org.springframework.web.bind.annotation.RequestHeader
 )
 interface KakoApiFeignClient {
     @PostMapping("/v2/user/me")
-    fun getUserInfo(@RequestHeader headers: HttpHeaders) : User.KakaoUser
+    fun getUserInfo(@RequestHeader headers: HttpHeaders): User.KakaoUser
 }

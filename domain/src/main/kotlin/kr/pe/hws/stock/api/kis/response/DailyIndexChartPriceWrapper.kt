@@ -46,11 +46,11 @@ object DailyIndexChartPriceWrapper {
         // 업종 지수 전일 대비율
         val bstpNmixPrdyCtrt: String?,
         // 전일 대비 부호
-        //	1 : 상한
-        //2 : 상승
-        //3 : 보합
-        //4 : 하한
-        //5 : 하락
+        //  1 : 상한
+        //  2 : 상승
+        //  3 : 보합
+        //  4 : 하한
+        //  5 : 하락
         val prdyVrssSign: String?,
         // 업종 지수 전일 대비
         val bstpNmixPrdyVrss: String?,
@@ -77,7 +77,6 @@ object DailyIndexChartPriceWrapper {
         val modYn: String?,
     )
 
-
     @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy::class)
     @JsonInclude(JsonInclude.Include.NON_NULL)
     data class OverSeaDailyIndexChart(
@@ -94,11 +93,11 @@ object DailyIndexChartPriceWrapper {
         // 전일 대비
         val ovrsNmixPrdyVrss: String?,
         // 전일 대비 부호
-        //	1 : 상한
-        //2 : 상승
-        //3 : 보합
-        //4 : 하한
-        //5 : 하락
+        // 	1 : 상한
+        //  2 : 상승
+        //  3 : 보합
+        //  4 : 하한
+        //  5 : 하락
         val prdyVrssSign: String?,
         // 전일 대비율
         val prdyCtrt: String?,

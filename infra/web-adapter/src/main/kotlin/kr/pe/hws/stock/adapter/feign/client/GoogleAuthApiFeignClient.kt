@@ -15,5 +15,5 @@ import org.springframework.web.bind.annotation.PostMapping
 )
 interface GoogleAuthApiFeignClient {
     @PostMapping("/token")
-    fun getToken(headers: HttpHeaders, @SpringQueryMap query: TokenGetRequest) : ApiToken.GoogleToken
+    fun getToken(headers: HttpHeaders, @SpringQueryMap query: TokenGetRequest): ApiToken.GoogleToken
 }

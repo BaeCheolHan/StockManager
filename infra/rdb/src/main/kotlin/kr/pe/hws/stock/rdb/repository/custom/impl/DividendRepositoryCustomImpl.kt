@@ -17,7 +17,6 @@ class DividendRepositoryCustomImpl(
 ) : DividendRepositoryCustom {
 
     override fun findDividendChartByMemberId(memberId: String): List<DividendSumByMonth> {
-
         val dividend = QDividendEntity.dividendEntity
         val stocks = QStocksEntity.stocksEntity
         val exchangeRate = QExchangeRateEntity.exchangeRateEntity
@@ -25,9 +24,10 @@ class DividendRepositoryCustomImpl(
         return queryFactory.from(dividend)
             .select(
                 Projections.fields(
-                    DividendSumByMonth::class.java, dividend.year, dividend.month,
-                    stocks.national
-                        .`when`("KR").then(dividend.dividend)
+                    DividendSumByMonth::class.java,
+                    dividend.year,
+                    dividend.month,
+                    stocks.national.`when`("KR").then(dividend.dividend)
                         .otherwise(dividend.dividend.multiply(exchangeRate.basePrice)).sum().`as`("dividend"),
                 ),
             )
@@ -60,7 +60,6 @@ class DividendRepositoryCustomImpl(
          * 			.map(sort -> new OrderSpecifier(sort.isAscending() ? Order.ASC : Order.DESC, new PathBuilder(Dividend.class, sort.getProperty())))
          * 			.toArray(OrderSpecifier[]::new))
          */
-
     }
 
     override fun findDividendInfoByMemberIdGroupBySymbol(
@@ -73,7 +72,11 @@ class DividendRepositoryCustomImpl(
         return queryFactory.from(dividend)
             .select(
                 Projections.fields(
-                    DividendInfoByItem::class.java, stocks.code, stocks.name, dividend.symbol, stocks.national,
+                    DividendInfoByItem::class.java,
+                    stocks.code,
+                    stocks.name,
+                    dividend.symbol,
+                    stocks.national,
                     stocks.national
                         .`when`("KR")
                         .then(dividend.dividend.sum())

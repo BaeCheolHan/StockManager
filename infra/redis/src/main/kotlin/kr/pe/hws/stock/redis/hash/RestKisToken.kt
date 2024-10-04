@@ -18,6 +18,6 @@ class RestKisToken(
         access_token = token.accessToken,
         access_token_token_expired = token.accessTokenTokenExpired,
         token_type = token.tokenType,
-        expires_in = (token.expiresIn -10000)
+        expires_in = (token.expiresIn - 10000),
     )
 }

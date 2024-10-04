@@ -6,7 +6,6 @@ import kr.pe.hws.stock.redis.hash.RestKisToken
 import kr.pe.hws.stock.redis.repository.RestKisTokenRepository
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.http.HttpHeaders
-import org.springframework.http.MediaType
 import org.springframework.stereotype.Component
 import java.util.*
 
@@ -33,14 +32,13 @@ class KisApiUtils(
                 KisApiRequest.KisTokenGenerateRequest(
                     appKey,
                     appSecret,
-                )
+                ),
             )
 
             val token = RestKisToken(response)
             restKisTokenRepository.save(token)
             return token
         }
-
     }
 
     fun getDefaultApiHeader(transactionId: String?): HttpHeaders {
