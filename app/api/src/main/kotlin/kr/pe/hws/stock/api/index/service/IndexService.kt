@@ -58,7 +58,7 @@ class IndexService(
     }
 
     fun fetchKrIndexChartApi(chartType: String, type: IndexId): DailyIndexChartPriceWrapper.KrDailyIndexChart {
-        val headers = kisApiUtils.getDefaultApiHeader(KisApiTransactionId.KR_INDEX_CHART_PRICE.TRANSACTION_ID)
+        val headers = kisApiUtils.getDefaultApiHeader(KisApiTransactionId.KR_INDEX_CHART_PRICE)
         val request = KisApiRequest.DailyIndexChartPriceRequest(
             "U",
             type.code,
@@ -80,7 +80,7 @@ class IndexService(
         chartType: String,
         type: IndexId,
     ): DailyIndexChartPriceWrapper.OverSeaDailyIndexChart {
-        val headers = kisApiUtils.getDefaultApiHeader(KisApiTransactionId.OVER_SEA_INDEX_CHART_PRICE.TRANSACTION_ID)
+        val headers = kisApiUtils.getDefaultApiHeader(KisApiTransactionId.OVER_SEA_INDEX_CHART_PRICE)
         val request = KisApiRequest.DailyIndexChartPriceRequest(
             "N",
             type.code,

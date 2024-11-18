@@ -2,11 +2,11 @@ package kr.pe.hws.stock.adapter.util
 
 import kr.pe.hws.stock.adapter.feign.client.KisApiFeignClient
 import kr.pe.hws.stock.adapter.feign.client.KisApiRequest
+import kr.pe.hws.stock.api.kis.constants.KisApiTransactionId
 import kr.pe.hws.stock.redis.hash.RestKisToken
 import kr.pe.hws.stock.redis.repository.RestKisTokenRepository
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.http.HttpHeaders
-import org.springframework.http.MediaType
 import org.springframework.stereotype.Component
 import java.util.*
 
@@ -43,7 +43,7 @@ class KisApiUtils(
 
     }
 
-    fun getDefaultApiHeader(transactionId: String?): HttpHeaders {
+    fun getDefaultApiHeader(transactionId: KisApiTransactionId?): HttpHeaders {
         val header = HttpHeaders()
         val token = getRestKisToken()
         header.add("authorization", """${token.token_type} ${token.access_token}""")
@@ -51,7 +51,10 @@ class KisApiUtils(
         header.add("appkey", appKey)
         header.add("appsecret", appSecret)
 
-        if (transactionId != null) header.add("tr_id", transactionId)
+        // Enum 타입의 transactionId를 안전하게 처리
+        if (transactionId != null) {
+            header.add("tr_id", transactionId.toString())
+        }
 
         return header
     }
